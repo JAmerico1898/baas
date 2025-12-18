@@ -131,20 +131,36 @@ def inject_custom_css():
         .warning-box { background: rgba(245, 158, 11, 0.15); border-left: 4px solid #f59e0b; padding: 16px; border-radius: 4px; margin: 16px 0; color: #fef3c7; }
         .danger-box { background: rgba(239, 68, 68, 0.15); border-left: 4px solid #ef4444; padding: 16px; border-radius: 4px; margin: 16px 0; color: #fee2e2; }
 
-        /* --- REMOVER BARRA BRANCA NO TOPO --- */
-        
-        /* Ocultar header e toolbar do Streamlit */
-        header[data-testid="stHeader"] {
-            display: none !important;
-        }
-        
-        [data-testid="stToolbar"] {
-            display: none !important;
-        }
-        
         /* Remover espaço extra no topo */
         .main .block-container {
             padding-top: 1rem !important;
+        }
+
+        /* Ensure sidebar toggle is visible when collapsed */
+        [data-testid="collapsedControl"] {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            position: fixed !important;
+            left: 10px !important;
+            top: 10px !important;
+            z-index: 9999 !important;
+            background-color: #020617 !important; /* Dark background to match theme */
+            border: 2px solid #0ea5e9 !important; /* Prominent blue border for visibility */
+            border-radius: 5px !important;
+            padding: 5px !important;
+            width: 40px !important; /* Larger size for easier clicking */
+            height: 40px !important;
+        }
+
+        [data-testid="collapsedControl"]:hover {
+            background-color: #1e293b !important; /* Slightly lighter on hover */
+            border-color: #38bdf8 !important; /* Brighter border on hover */
+        }
+
+        [data-testid="collapsedControl"] svg {
+            fill: #f8fafc !important; /* White icon fill */
+            color: #f8fafc !important;
         }
 
     </style>
